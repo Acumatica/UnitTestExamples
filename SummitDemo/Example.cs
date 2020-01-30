@@ -64,7 +64,7 @@ namespace SummitDemo
         }
 
         [Fact]
-        public void BalancedBatch()
+        public void Test_Defaultin_InCuryID()
         {
             CashTransferEntry graph = PrepareGraph();
 
