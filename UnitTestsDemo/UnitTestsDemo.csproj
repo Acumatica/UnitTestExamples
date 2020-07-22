@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <SkipValidatePackageReferences>true</SkipValidatePackageReferences>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="FA\**" />
+    <EmbeddedResource Remove="FA\**" />
+    <None Remove="FA\**" />
+  </ItemGroup>
+  <ItemGroup>
+	<PackageReference Include="ApprovalTests" Version="3.0.13" />
+	<PackageReference Include="ApprovalUtilities" Version="3.0.13" />
+	<PackageReference Include="Autofac" Version="4.9.4" />
+	<PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="5.0.0" />
+	<PackageReference Include="Autofac.Owin" Version="4.2.0" />
+	<PackageReference Include="Castle.Core" Version="4.1.1" />
+	<PackageReference Include="CommonServiceLocator" Version="2.0.4" />
+	<PackageReference Include="FluentAssertions" Version="4.19.4" />
+	<PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
+	<PackageReference Include="Microsoft.Bcl.Build" Version="1.0.21" />
+	<PackageReference Include="Microsoft.Extensions.Primitives" Version="3.1.0" />
+	<PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
+	<PackageReference Include="Microsoft.Owin" Version="4.0.1" />
+	<PackageReference Include="Moq" Version="4.7.127" />
+	<PackageReference Include="Owin" Version="1.0" />
+	<PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+	<PackageReference Include="xunit.abstractions" Version="2.0.1" />
+	<PackageReference Include="xunit.assert" Version="2.3.1" />
+	<PackageReference Include="xunit.core" Version="2.3.1" />
+	<PackageReference Include="xunit.extensibility.core" Version="2.3.1" />
+	<PackageReference Include="xunit.extensibility.execution" Version="2.3.1" />
+	<PackageReference Include="xunit.runner.visualstudio" Version="2.4.2">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="Bogus" Version="28.0.2" />
+	<PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PX.Data">
+      <HintPath>..\..\..\..\Acumatica Sites\2020r102\Bin\PX.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects">
+      <HintPath>..\..\..\..\Acumatica Sites\2020r102\Bin\PX.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>
