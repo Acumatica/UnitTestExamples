@@ -9,44 +9,53 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="FA\**" />
+    <Compile Remove="Properties\**" />
     <EmbeddedResource Remove="FA\**" />
+    <EmbeddedResource Remove="Properties\**" />
     <None Remove="FA\**" />
+    <None Remove="Properties\**" />
   </ItemGroup>
   <ItemGroup>
 	<PackageReference Include="ApprovalTests" Version="3.0.13" />
 	<PackageReference Include="ApprovalUtilities" Version="3.0.13" />
-	<PackageReference Include="Autofac" Version="4.9.4" />
-	<PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="5.0.0" />
-	<PackageReference Include="Autofac.Owin" Version="4.2.0" />
-	<PackageReference Include="Castle.Core" Version="4.1.1" />
-	<PackageReference Include="CommonServiceLocator" Version="2.0.4" />
-	<PackageReference Include="FluentAssertions" Version="4.19.4" />
+	<PackageReference Include="Autofac" Version="6.0.0" />
+	<PackageReference Include="Castle.Core" Version="4.4.1" />
+	<PackageReference Include="CommonServiceLocator" Version="2.0.5" />
+	<PackageReference Include="FluentAssertions" Version="5.10.3" />
 	<PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
-	<PackageReference Include="Microsoft.Bcl.Build" Version="1.0.21" />
-	<PackageReference Include="Microsoft.Extensions.Primitives" Version="3.1.0" />
 	<PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
-	<PackageReference Include="Microsoft.Owin" Version="4.0.1" />
-	<PackageReference Include="Moq" Version="4.7.127" />
-	<PackageReference Include="Owin" Version="1.0" />
-	<PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
-	<PackageReference Include="xunit.abstractions" Version="2.0.1" />
-	<PackageReference Include="xunit.assert" Version="2.3.1" />
-	<PackageReference Include="xunit.core" Version="2.3.1" />
-	<PackageReference Include="xunit.extensibility.core" Version="2.3.1" />
-	<PackageReference Include="xunit.extensibility.execution" Version="2.3.1" />
-	<PackageReference Include="xunit.runner.visualstudio" Version="2.4.2">
+	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+	<PackageReference Include="Moq" Version="4.14.1" />
+	<PackageReference Include="xunit.abstractions" Version="2.0.3" />
+	<PackageReference Include="xunit.assert" Version="2.4.1" />
+	<PackageReference Include="xunit.core" Version="2.4.1" />
+	<PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
+	<PackageReference Include="xunit.extensibility.execution" Version="2.4.1" />
+	<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
 	<PackageReference Include="Bogus" Version="28.0.2" />
-	<PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+	<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="PX.Common">
+      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Common.Std">
+      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Common.Std.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CS.Contracts">
+      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.CS.Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="PX.Data">
-      <HintPath>..\..\..\..\Acumatica Sites\2020r102\Bin\PX.Data.dll</HintPath>
+      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data.BQL.Fluent">
+      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects">
-      <HintPath>..\..\..\..\Acumatica Sites\2020r102\Bin\PX.Objects.dll</HintPath>
+      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Objects.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -69,8 +78,5 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>
