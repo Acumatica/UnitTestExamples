@@ -1,8 +1,8 @@
 ﻿using System;
-using Autofac;
 using System.Collections;
 using System.Linq;
 
+using Autofac;
 using Xunit;
 
 using PX.Data;
@@ -10,8 +10,7 @@ using PX.Data.Unit;
 
 using PX.Objects.GL;
 using PX.Objects.AP;
-using PX.Objects.GL.FinPeriods;
-using PX.Objects.CM.Extensions;
+
 using UnitTestsDemo;
 
 namespace VirtualDevConf2020Demo

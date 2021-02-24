@@ -1,12 +1,14 @@
 ﻿using System;
+
 using Autofac;
 using Xunit;
+
 using PX.Data;
 using PX.Data.Unit;
+
 using PX.Objects.GL;
 using PX.Objects.CA;
-using PX.Objects.GL.FinPeriods;
-using PX.Objects.CM.Extensions;
+
 using UnitTestsDemo;
 
 namespace Summit2020Demo
