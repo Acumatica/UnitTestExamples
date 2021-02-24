@@ -7,27 +7,16 @@ using PX.Objects.GL;
 using PX.Objects.CA;
 using PX.Objects.GL.FinPeriods;
 using PX.Objects.CM.Extensions;
+using UnitTestsDemo;
 
-namespace SummitDemo
+namespace Summit2020Demo
 {
-    public class CATransferTest : TestBase
+    public class CATransferTest : UnitTestWithSetup
     {       
-        protected override void RegisterServices(ContainerBuilder builder)
-        {
-            base.RegisterServices(builder);
-            builder.RegisterType<PX.Objects.Unit.FinPeriodServiceMock>().As<IFinPeriodRepository>();
-            builder.RegisterType<PX.Objects.Unit.CurrencyServiceMock>().As<IPXCurrencyService>();
-        }
 
         private CashTransferEntry PrepareGraph()
         {
-            Setup<CashTransferEntry>(
-                new GLSetup
-                {
-                    YtdNetIncAccountID = int.MaxValue - 2,
-                    RetEarnAccountID = int.MaxValue - 1,
-                    RequireControlTotal = false
-                });
+            AddGLSetup<CashTransferEntry>();
             Setup<CashTransferEntry>(
                 new CASetup
                 {

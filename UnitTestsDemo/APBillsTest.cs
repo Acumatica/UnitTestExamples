@@ -12,25 +12,15 @@ using PX.Objects.GL;
 using PX.Objects.AP;
 using PX.Objects.GL.FinPeriods;
 using PX.Objects.CM.Extensions;
+using UnitTestsDemo;
 
-namespace VirtualDevConfDemo
+namespace VirtualDevConf2020Demo
 {
-    public class APBillsTest : TestBase
+    public class APBillsTest : UnitTestWithSetup
     {       
-        protected override void RegisterServices(ContainerBuilder builder)
-        {
-            base.RegisterServices(builder);
-            builder.RegisterType<PX.Objects.Unit.FinPeriodServiceMock>().As<IFinPeriodRepository>();
-            builder.RegisterType<PX.Objects.Unit.CurrencyServiceMock>().As<IPXCurrencyService>();
-        }
-
         private APInvoiceEntry PrepareGraph()
         {
-            Setup<APInvoiceEntry>(
-                new GLSetup
-                {
-                    RequireControlTotal = false
-                });
+            AddGLSetup<APInvoiceEntry>();
             Setup<APInvoiceEntry>(
                 new APSetup
                 {
