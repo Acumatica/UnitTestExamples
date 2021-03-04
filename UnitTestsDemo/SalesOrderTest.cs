@@ -23,6 +23,8 @@ namespace VirtualDevConf2021Demo
             AddGLSetup<SOOrderEntry>();
             SetupSOOrderTypeAndTypeOperation<SOOrderEntry>();
             SetupOrganizationAndBranch<SOOrderEntry>();
+
+
             Setup<SOOrderEntry>(new SOSetup { }, new ARSetup());
 
             var graph = PXGraph.CreateInstance<SOOrderEntry>();
@@ -33,81 +35,51 @@ namespace VirtualDevConf2021Demo
 
         [Fact]
         public void Test_Calculation_UnitPrice()
-        {
-            SOOrderEntry graph = PrepareGraph();
-            graph.Caches[typeof(INUnit)].Insert(
-           new INUnit
-           {
-               UnitType = INUnitType.Global,
-               InventoryID = 0,
-               FromUnit = "KG",
-               ToUnit = "KG",
-               UnitMultDiv = "M",
-               UnitRate = 1m
-           });
-            graph.Caches[typeof(INUnit)].Insert(
-             new INUnit
-             {
-                 UnitType = INUnitType.Global,
-                 InventoryID = 0,
-                 FromUnit = "LBS",
-                 ToUnit = "LBS",
-                 UnitMultDiv = "M",
-                 UnitRate = 1m
-             });
+		{
+			// Prepare Data
+			SOOrderEntry graph = PrepareGraph();
+			InsertINUnit(graph, "KG");
+			InsertINUnit(graph, "LBS");
+			Customer customer = InsertCustomer(graph, "TestCustmer");
 
-            var stockItem = (InventoryItem)graph.Caches[typeof(InventoryItem)].Insert(
-                 new InventoryItem
-                 {
-                     InventoryCD = "TESTITEM",
-                     BasePrice = 500,
-                     BaseUnit = "KG",
-                     SalesUnit = "LBS"
-                 });
-           
-            graph.Caches[typeof(INUnit)].Insert(
-                new INUnit
-                {
-                    UnitType = INUnitType.InventoryItem,
-                    InventoryID = stockItem.InventoryID,
-                    FromUnit = "KG",
-                    ToUnit = "LBS",
-                    UnitMultDiv = "M",
-                    UnitRate = 2.2m
-                });
+			var stockItem = (InventoryItem)graph.Caches[typeof(InventoryItem)].Insert(
+				 new InventoryItem
+				 {
+					 InventoryCD = "TESTITEM",
+					 BasePrice = 500,
+					 BaseUnit = "KG",
+					 SalesUnit = "LBS"
+				 });
 
-            graph.Caches[typeof(INUnit)].Insert(
-            new INUnit
-            {
-                UnitType = INUnitType.InventoryItem,
-                InventoryID = stockItem.InventoryID,
-                FromUnit = "LBS",
-                ToUnit = "KG",
-                UnitMultDiv = "D",
-                UnitRate = 2.2m
-            });
+			graph.Caches[typeof(INUnit)].Insert(
+				new INUnit
+				{
+					UnitType = INUnitType.InventoryItem,
+					InventoryID = stockItem.InventoryID,
+					FromUnit = "LBS",
+					ToUnit = "KG",
+					UnitMultDiv = "D",
+					UnitRate = 2.2m
+				});
 
-            Customer customer = InsertCustomer(graph, "TestCustmer");
+			// Execute Action
+			SOOrder order = graph.Document.Insert(
+				new SOOrder()
+				{
+					CustomerID = customer.BAccountID,
+					CustomerLocationID = customer.DefLocationID
+				});
 
-            SOOrder order = new SOOrder()
-            {
-                OrderType = "SO",
-                OrderNbr = "TEST"
-            };
-            AutoNumberAttribute.SetUserNumbering<SOOrder.orderNbr>(graph.Caches<SOOrder>());
-            order = graph.Document.Insert(order);
-            order.CustomerID = customer.BAccountID;
-            order.CustomerLocationID = customer.DefLocationID;
-            graph.Document.Update(order);
+			SOLine orderLine = graph.Transactions.Insert(
+				new SOLine()
+				{
+					InventoryID = stockItem.InventoryID,
+					Qty = 1
+				});
 
-            var orderLine = graph.Transactions.Insert();
-            orderLine.InventoryID = stockItem.InventoryID;
-            orderLine.Qty = 1;
-            orderLine.UOM = "LBS";
-            orderLine = graph.Transactions.Update(orderLine);
-
-            Assert.Equal("LBS", orderLine.UOM);
-            Assert.InRange(orderLine.CuryUnitPrice.Value, Math.Floor(500m / 2.2m), Math.Ceiling(500m / 2.2m));
-        }
-    }
+			//Check the result
+			Assert.Equal("LBS", orderLine.UOM);
+			Assert.InRange(orderLine.CuryUnitPrice.Value, Math.Floor(500m / 2.2m), Math.Ceiling(500m / 2.2m));
+		}
+	}
 }

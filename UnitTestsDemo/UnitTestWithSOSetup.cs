@@ -13,6 +13,7 @@ using PX.Objects.GL;
 using PX.Objects.GL.FinPeriods;
 using PX.Objects.GL.DAC;
 using PX.Objects.SO;
+using PX.Objects.IN;
 
 namespace UnitTestsDemo
 {
@@ -43,35 +44,19 @@ namespace UnitTestsDemo
                     DefaultOperation = "I",
                 });
         }
-        public virtual SOOrderType CreateSOOrderTypeAndTypeOperation(PXGraph graph, string orderType, string behavior, string template, string operation, string iNDocType, string aRDocType, short invtMult)
+
+        protected static void InsertINUnit(PXGraph graph, string unit)
         {
-            Insert<SOOrderTypeOperation>(graph, new SOOrderTypeOperation
-            {
-                OrderType = orderType,
-                Operation = operation,
-                INDocType = iNDocType,
-                InvtMult = invtMult,
-            });
-
-            Insert<SOOrderTypeT>(graph, new SOOrderTypeT
-            {
-                OrderType = orderType,
-                Behavior = behavior,
-            });
-
-            return Insert<SOOrderType>(graph, new SOOrderType
-            {
-                OrderType = orderType,
-                Active = true,
-                DaysToKeep = 0,
-                Template = template,
-                IsSystem = true,
-                Behavior = behavior,
-                DefaultOperation = operation,
-                INDocType = iNDocType,
-                ARDocType = aRDocType,
-            });
+            graph.Caches[typeof(INUnit)].Insert(
+               new INUnit
+               {
+                   UnitType = INUnitType.Global,
+                   InventoryID = 0,
+                   FromUnit = unit,
+                   ToUnit = unit,
+                   UnitMultDiv = "M",
+                   UnitRate = 1m
+               });
         }
-
     }
 }

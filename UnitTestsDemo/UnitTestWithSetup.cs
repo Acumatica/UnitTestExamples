@@ -54,12 +54,12 @@ namespace UnitTestsDemo
 		protected virtual Branch CreateOrganizationAndBranch(PXGraph graph, string mainOrganizationCD, string mainBranchCD)
 		{
 			var organization = Insert<Organization>(graph,
-				new Organization() 
-				{ 
-					OrganizationCD = mainOrganizationCD 
+				new Organization()
+				{
+					OrganizationCD = mainOrganizationCD
 				});
 
-			return Insert<Branch>(graph, 
+			return Insert<Branch>(graph,
 				new Branch()
 				{
 					BranchCD = mainBranchCD,
