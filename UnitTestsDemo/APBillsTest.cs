@@ -19,7 +19,7 @@ namespace VirtualDevConf2020Demo
     {       
         private APInvoiceEntry PrepareGraph()
         {
-            AddGLSetup<APInvoiceEntry>();
+            SetupGL<APInvoiceEntry>();
             Setup<APInvoiceEntry>(
                 new APSetup
                 {

@@ -20,16 +20,11 @@ namespace VirtualDevConf2021Demo
     {
         private SOOrderEntry PrepareGraph()
         {
-            AddGLSetup<SOOrderEntry>();
+			SetupSO<SOOrderEntry>();
             SetupSOOrderTypeAndTypeOperation<SOOrderEntry>();
             SetupOrganizationAndBranch<SOOrderEntry>();
 
-
-            Setup<SOOrderEntry>(new SOSetup { }, new ARSetup());
-
-            var graph = PXGraph.CreateInstance<SOOrderEntry>();
-
-            return graph;
+            return PXGraph.CreateInstance<SOOrderEntry>();
         }
 
 

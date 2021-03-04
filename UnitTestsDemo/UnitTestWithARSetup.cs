@@ -20,6 +20,16 @@ namespace UnitTestsDemo
 {
 	public abstract class UnitTestWithARSetup : UnitTestWithSetup
 	{
+		protected void SetupAR<Graph>()
+		where Graph : PXGraph
+		{
+			SetupGL<Graph>();
+			Setup<Graph>(
+				new ARSetup
+				{
+					RequireControlTotal = false
+				});
+		}
 		public virtual Customer InsertCustomer(PXGraph graph, string customerCD)
 		{
 			var customer = Insert<Customer>(graph, new Customer

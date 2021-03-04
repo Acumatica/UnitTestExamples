@@ -18,7 +18,7 @@ namespace Summit2020Demo
 
         private CashTransferEntry PrepareGraph()
         {
-            AddGLSetup<CashTransferEntry>();
+            SetupGL<CashTransferEntry>();
             Setup<CashTransferEntry>(
                 new CASetup
                 {

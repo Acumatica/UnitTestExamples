@@ -25,7 +25,7 @@ namespace UnitTestsDemo
 			builder.RegisterType<PX.Objects.Unit.CurrencyServiceMock>().As<IPXCurrencyService>();
 		}
 
-		protected void AddGLSetup<Graph>()
+		protected void SetupGL<Graph>()
 			where Graph : PXGraph
 		{
 			Setup<Graph>(

@@ -19,6 +19,15 @@ namespace UnitTestsDemo
 {
 	public abstract class UnitTestWithSOSetup : UnitTestWithARSetup
     {
+        protected void SetupSO<Graph>()
+            where Graph : PXGraph
+        {
+            SetupAR<Graph>();
+            Setup<Graph>(
+                new SOSetup
+                {
+                });
+        }
         public virtual void SetupSOOrderTypeAndTypeOperation<Graph>()
             where Graph : PXGraph
         {
