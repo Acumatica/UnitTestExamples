@@ -16,7 +16,7 @@ using PX.Objects.GL.DAC;
 
 namespace UnitTestsDemo
 {
-	public abstract class UnitTestWithSetup : TestBase
+	public abstract class UnitTestWithGLSetup : TestBase
 	{
 		protected override void RegisterServices(ContainerBuilder builder)
 		{
@@ -51,21 +51,7 @@ namespace UnitTestsDemo
 					OrganizationID = -1
 				});
 		}
-		protected virtual Branch CreateOrganizationAndBranch(PXGraph graph, string mainOrganizationCD, string mainBranchCD)
-		{
-			var organization = Insert<Organization>(graph,
-				new Organization()
-				{
-					OrganizationCD = mainOrganizationCD
-				});
-
-			return Insert<Branch>(graph,
-				new Branch()
-				{
-					BranchCD = mainBranchCD,
-					OrganizationID = organization.OrganizationID
-				});
-		}
+	
 		protected Table Insert<Table>(PXGraph graph, Table row)
 			where Table : class, IBqlTable, new()
 		{

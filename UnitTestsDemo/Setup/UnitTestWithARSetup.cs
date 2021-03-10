@@ -18,7 +18,7 @@ using PX.Objects.CR;
 
 namespace UnitTestsDemo
 {
-	public abstract class UnitTestWithARSetup : UnitTestWithSetup
+	public abstract class UnitTestWithARSetup : UnitTestWithGLSetup
 	{
 		protected void SetupAR<Graph>()
 		where Graph : PXGraph

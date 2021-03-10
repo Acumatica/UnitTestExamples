@@ -27,7 +27,6 @@ namespace VirtualDevConf2021Demo
             return PXGraph.CreateInstance<SOOrderEntry>();
         }
 
-
         [Fact]
         public void Test_Calculation_UnitPrice()
 		{
@@ -35,7 +34,6 @@ namespace VirtualDevConf2021Demo
 			SOOrderEntry graph = PrepareGraph();
 			InsertINUnit(graph, "KG");
 			InsertINUnit(graph, "LBS");
-			Customer customer = InsertCustomer(graph, "TestCustmer");
 
 			var stockItem = (InventoryItem)graph.Caches[typeof(InventoryItem)].Insert(
 				 new InventoryItem
@@ -56,6 +54,7 @@ namespace VirtualDevConf2021Demo
 					UnitMultDiv = "D",
 					UnitRate = 2.2m
 				});
+			Customer customer = InsertCustomer(graph, "TestCustmer");
 
 			// Execute Action
 			SOOrder order = graph.Document.Insert(

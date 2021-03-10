@@ -15,7 +15,7 @@ using UnitTestsDemo;
 
 namespace VirtualDevConf2020Demo
 {
-    public class APBillsTest : UnitTestWithSetup
+    public class APBillsTest : UnitTestWithGLSetup
     {       
         private APInvoiceEntry PrepareGraph()
         {

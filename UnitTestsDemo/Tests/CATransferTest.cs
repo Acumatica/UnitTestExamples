@@ -13,9 +13,8 @@ using UnitTestsDemo;
 
 namespace Summit2020Demo
 {
-    public class CATransferTest : UnitTestWithSetup
-    {       
-
+    public class CATransferTest : UnitTestWithGLSetup
+    {      
         private CashTransferEntry PrepareGraph()
         {
             SetupGL<CashTransferEntry>();
