@@ -37,7 +37,7 @@ namespace UnitTestsDemo
 				AcctCD = customerCD,
 				CuryID = "USD",
 				Type = BAccountType.CustomerType,
-				Status = CustomerStatus.Active,
+				Status = Customer.status.Active,
 			});
 			var location = Insert<Location>(graph, new Location()
 			{

@@ -18,7 +18,7 @@
   <ItemGroup>
 	<PackageReference Include="ApprovalTests" Version="3.0.13" />
 	<PackageReference Include="ApprovalUtilities" Version="3.0.13" />
-	<PackageReference Include="Autofac" Version="6.0.0" />
+	<PackageReference Include="Autofac" Version="5.2.0" />
 	<PackageReference Include="Castle.Core" Version="4.4.1" />
 	<PackageReference Include="CommonServiceLocator" Version="2.0.5" />
 	<PackageReference Include="FluentAssertions" Version="5.10.3" />
