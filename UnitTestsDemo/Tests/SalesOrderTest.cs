@@ -4,7 +4,7 @@ using Autofac;
 using Xunit;
 
 using PX.Data;
-using PX.Data.Unit;
+using PX.Tests.Unit;
 
 using PX.Objects.GL;
 using PX.Objects.SO;
@@ -39,9 +39,15 @@ namespace VirtualDevConf2021Demo
 				 new InventoryItem
 				 {
 					 InventoryCD = "TESTITEM",
-					 BasePrice = 500,
 					 BaseUnit = "KG",
 					 SalesUnit = "LBS"
+				 });
+			graph.Caches[typeof(InventoryItemCurySettings)].Insert(
+				 new InventoryItemCurySettings
+				 {
+					 InventoryID = stockItem.InventoryID,
+					 CuryID = "USD",
+					 BasePrice = 500
 				 });
 
 			graph.Caches[typeof(INUnit)].Insert(

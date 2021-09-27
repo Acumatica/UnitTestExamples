@@ -4,7 +4,7 @@ using Autofac;
 using Xunit;
 
 using PX.Data;
-using PX.Data.Unit;
+using PX.Tests.Unit;
 
 using PX.Objects.GL;
 using PX.Objects.CA;

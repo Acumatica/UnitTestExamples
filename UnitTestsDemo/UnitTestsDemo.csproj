@@ -18,7 +18,7 @@
   <ItemGroup>
 	<PackageReference Include="ApprovalTests" Version="3.0.13" />
 	<PackageReference Include="ApprovalUtilities" Version="3.0.13" />
-	<PackageReference Include="Autofac" Version="6.0.0" />
+	<PackageReference Include="Autofac" Version="6.2.0" />
 	<PackageReference Include="Castle.Core" Version="4.4.1" />
 	<PackageReference Include="CommonServiceLocator" Version="2.0.5" />
 	<PackageReference Include="FluentAssertions" Version="5.10.3" />
@@ -56,6 +56,9 @@
     </Reference>
     <Reference Include="PX.Objects">
       <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Tests.Unit">
+      <HintPath>..\..\code\NetTools\Tests\PX.Tests.Unit\bin\PX.Tests.Unit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

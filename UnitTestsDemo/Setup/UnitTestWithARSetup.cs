@@ -6,7 +6,7 @@ using Autofac;
 using Xunit;
 
 using PX.Data;
-using PX.Data.Unit;
+using PX.Tests.Unit;
 using PX.Objects.AP;
 using PX.Objects.CM.Extensions;
 using PX.Objects.GL;
