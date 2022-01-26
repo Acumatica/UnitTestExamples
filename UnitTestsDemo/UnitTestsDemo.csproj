@@ -23,6 +23,7 @@
 	<PackageReference Include="CommonServiceLocator" Version="2.0.5" />
 	<PackageReference Include="FluentAssertions" Version="5.10.3" />
 	<PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
+	<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
 	<PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
 	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
 	<PackageReference Include="Moq" Version="4.14.1" />
@@ -40,25 +41,23 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PX.Common">
-      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Common.dll</HintPath>
+      <HintPath>..\..\..\Acumatica Installers\22.093.0131\Acumatica ERP\Files\Bin\PX.Common.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common.Std">
-      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Common.Std.dll</HintPath>
-    </Reference>
-    <Reference Include="PX.CS.Contracts">
-      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.CS.Contracts.dll</HintPath>
+      <HintPath>..\..\..\Acumatica Installers\22.093.0131\Acumatica ERP\Files\Bin\PX.Common.Std.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data">
-      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Data.dll</HintPath>
+      <HintPath>..\..\..\Acumatica Installers\22.093.0131\Acumatica ERP\Files\Bin\PX.Data.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data.BQL.Fluent">
-      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Data.BQL.Fluent.dll</HintPath>
+      <HintPath>..\..\..\Acumatica Installers\22.093.0131\Acumatica ERP\Files\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects">
-      <HintPath>..\..\code\WebSites\Pure\Site\Bin\PX.Objects.dll</HintPath>
+      <HintPath>..\..\..\Acumatica Installers\22.093.0131\Acumatica ERP\Files\Bin\PX.Objects.dll</HintPath>
     </Reference>
     <Reference Include="PX.Tests.Unit">
-      <HintPath>..\..\code\NetTools\Tests\PX.Tests.Unit\bin\PX.Tests.Unit.dll</HintPath>
+      <HintPath>..\..\..\Acumatica Installers\22.093.0131\Acumatica ERP\UnitTesting\PX.Tests.Unit.dll</HintPath>
+      <CopyLocal></CopyLocal>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
