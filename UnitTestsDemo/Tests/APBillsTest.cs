@@ -12,28 +12,18 @@ using PX.Objects.GL;
 using PX.Objects.AP;
 
 using UnitTestsDemo;
+using UnitTestsDemo.Setup;
 
 namespace VirtualDevConf2020Demo
 {
-    public class APBillsTest : UnitTestWithGLSetup
+    public class APBillsTest : UnitTestWithAPSetup
     {       
-        private APInvoiceEntry PrepareGraph()
-        {
-            SetupGL<APInvoiceEntry>();
-            Setup<APInvoiceEntry>(
-                new APSetup
-                {
-                    RequireControlTotal = false
-                });
-            var graph = PXGraph.CreateInstance<APInvoiceEntry>();
-            return graph;
-        }
 
         [Fact]
         public void Test_Defaulting_CuryIDFromVendor()
         {
             // Create and set up object you are going to test
-            APInvoiceEntry graph = PrepareGraph();
+            APInvoiceEntry graph = PrepareGraph<APInvoiceEntry>();
 
             graph.Caches[typeof(PX.Objects.CM.CurrencyList)].Insert(
              new PX.Objects.CM.CurrencyList

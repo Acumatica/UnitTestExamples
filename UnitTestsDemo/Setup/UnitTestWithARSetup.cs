@@ -16,12 +16,12 @@ using PX.Objects.SO;
 using PX.Objects.AR;
 using PX.Objects.CR;
 
-namespace UnitTestsDemo
+namespace UnitTestsDemo.Setup
 {
 	public abstract class UnitTestWithARSetup : UnitTestWithGLSetup
 	{
 		protected void SetupAR<Graph>()
-		where Graph : PXGraph
+			where Graph : PXGraph
 		{
 			SetupGL<Graph>();
 			Setup<Graph>(

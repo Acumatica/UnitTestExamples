@@ -13,6 +13,7 @@ using PX.Objects.AR;
 
 using UnitTestsDemo;
 using PX.Objects.CS;
+using UnitTestsDemo.Setup;
 
 namespace VirtualDevConf2021Demo
 {

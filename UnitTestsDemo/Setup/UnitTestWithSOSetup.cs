@@ -15,7 +15,7 @@ using PX.Objects.GL.DAC;
 using PX.Objects.SO;
 using PX.Objects.IN;
 
-namespace UnitTestsDemo
+namespace UnitTestsDemo.Setup
 {
 	public abstract class UnitTestWithSOSetup : UnitTestWithARSetup
     {

@@ -14,7 +14,7 @@ using PX.Objects.GL.FinPeriods;
 using PX.Objects.GL.DAC;
 
 
-namespace UnitTestsDemo
+namespace UnitTestsDemo.Setup
 {
 	public abstract class UnitTestWithGLSetup : TestBase
 	{

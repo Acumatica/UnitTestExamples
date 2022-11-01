@@ -10,6 +10,7 @@ using PX.Objects.GL;
 using PX.Objects.CA;
 
 using UnitTestsDemo;
+using UnitTestsDemo.Setup;
 
 namespace Summit2020Demo
 {
@@ -28,6 +29,7 @@ namespace Summit2020Demo
         }
 
         [Fact]
+        
         public void Test_Defaulting_InCuryID()
         {
             CashTransferEntry graph = PrepareGraph();
@@ -36,7 +38,7 @@ namespace Summit2020Demo
              (CashAccount)graph.Caches[typeof(CashAccount)].Insert(
                  new CashAccount { 
                      CashAccountCD = "102000", 
-                     CuryID = "USD" 
+                     CuryID = "USD",
                  });
 
             var transfer = graph.Transfer.Insert();
