@@ -31,6 +31,7 @@ namespace UnitTestsDemo.Setup
             Setup<TGraph>(
                 new POSetup
                 {
+                    RequireReceiptControlTotal = false
                 });
         }
         protected virtual TGraph PrepareGraph<TGraph>()
