@@ -32,23 +32,38 @@ namespace UnitTestsDemo.Setup
 		}
 		public virtual Customer InsertCustomer(PXGraph graph, string customerCD)
 		{
-			var customer = Insert<Customer>(graph, new Customer
+            var baccountR = Insert<BAccountR>(graph, new BAccountR
+            {
+                AcctCD = customerCD,
+                CuryID = "USD",
+                Type = BAccountType.CustomerType,
+                Status = CustomerStatus.Active,
+            });
+            
+            var location = Insert<Location>(graph, new Location()
 			{
-				AcctCD = customerCD,
-				CuryID = "USD",
-				Type = BAccountType.CustomerType,
-				Status = CustomerStatus.Active,
-			});
-			var location = Insert<Location>(graph, new Location()
-			{
-				BAccountID = customer.BAccountID,
+				BAccountID = baccountR.BAccountID,
 				LocationCD = "MockLocaltion",
 				IsActive = true,
+				IsDefault = true,
 				LocType = LocTypeList.CustomerLoc
 			});
-			customer.DefLocationID = location.LocationID;
 
-			return Update<Customer>(graph, customer);
+            baccountR.DefLocationID = location.LocationID;
+			baccountR = Update<BAccountR>(graph, baccountR);
+
+
+            var customer = Insert<Customer>(graph, new Customer
+            {
+                BAccountID = baccountR.BAccountID,
+                AcctCD = customerCD,
+                CuryID = "USD",
+                Type = BAccountType.CustomerType,
+                Status = CustomerStatus.Active,
+            });
+            customer.DefLocationID = location.LocationID;
+
+            return customer;
 		}
 	}
 }
