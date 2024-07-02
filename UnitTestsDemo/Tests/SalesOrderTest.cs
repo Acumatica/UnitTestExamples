@@ -15,7 +15,7 @@ using UnitTestsDemo;
 using PX.Objects.CS;
 using UnitTestsDemo.Setup;
 
-namespace VirtualDevConf2021Demo
+namespace UnitTestsDemo.Tests
 {
     public class SalesOrderTest : UnitTestWithSOSetup
     {

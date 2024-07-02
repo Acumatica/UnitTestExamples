@@ -14,7 +14,7 @@ using PX.Objects.AP;
 using UnitTestsDemo;
 using UnitTestsDemo.Setup;
 
-namespace VirtualDevConf2020Demo
+namespace UnitTestsDemo.Tests
 {
     public class APBillsTest : UnitTestWithAPSetup
     {       

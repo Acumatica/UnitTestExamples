@@ -12,7 +12,7 @@ using PX.Objects.CA;
 using UnitTestsDemo;
 using UnitTestsDemo.Setup;
 
-namespace Summit2020Demo
+namespace UnitTestsDemo.Tests
 {
     public class CATransferTest : UnitTestWithGLSetup
     {      
