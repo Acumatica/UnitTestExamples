@@ -3,21 +3,12 @@
     <TargetFramework>net48</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-	<PackageReference Include="ApprovalTests" Version="5.7.3" />
-	<PackageReference Include="ApprovalUtilities" Version="5.7.3" />
-	<PackageReference Include="Autofac" Version="6.5.0" />
-	<PackageReference Include="Castle.Core" Version="5.1.0" />
 	<PackageReference Include="FluentAssertions" Version="6.7.0" />
-	<PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
-	<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
-	<PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
-	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.0" />
 	<PackageReference Include="Moq" Version="4.18.2" />
 	<PackageReference Include="xunit.abstractions" Version="2.0.3" />
 	<PackageReference Include="xunit.assert" Version="2.4.2" />
 	<PackageReference Include="xunit.core" Version="2.4.2" />
 	<PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
-	<PackageReference Include="xunit.extensibility.execution" Version="2.4.2" />
 	<PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,8 +17,8 @@
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator">
-      <HintPath>..\..\..\Program Files\Acumatica ERP\Files\Bin\CommonServiceLocator.dll</HintPath>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\Program Files\Acumatica ERP\Files\Bin\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common">
       <HintPath>..\..\..\..\..\..\Program Files\Acumatica ERP\Files\Bin\PX.Common.dll</HintPath>
