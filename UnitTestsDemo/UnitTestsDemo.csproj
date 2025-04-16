@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
+	 <Company>Acumatica</Company>
+    <Copyright>Copyright © 2005-2025 Acumatica, Inc. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://github.com/Acumatica/UnitTestExamples</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Acumatica/UnitTestExamples</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
 	<PackageReference Include="FluentAssertions" Version="6.10.0" />
