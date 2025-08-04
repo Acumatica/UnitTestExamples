@@ -49,6 +49,11 @@ namespace UnitTestsDemo.Mocks
         {
         }
 
+        public int GetActiveReminderCounts()
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<PX.Data.EP.ActivityService.IActivityType> GetActivityTypes()
         {
             yield break;
