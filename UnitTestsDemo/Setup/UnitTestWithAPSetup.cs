@@ -1,26 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using PX.Data;
+﻿using PX.Data;
 using PX.Objects.AP;
+using PX.Objects.CS;
+
+using System;
+using System.Collections.Generic;
 
 namespace UnitTestsDemo.Setup
 {
     public abstract class UnitTestWithAPSetup : UnitTestWithGLSetup
     {
-        protected virtual void SetupAP<TGraph>()
+		private class MockAutoNumberings : AutoNumberAttribute.Numberings
+		{
+			public MockAutoNumberings() : base()
+			{
+				_items = new Dictionary<string, string>();
+				_items["APBILL"] = "<NEW>";
+			}
+		}
+		protected virtual void SetupAP<TGraph>()
              where TGraph : PXGraph, new()
         {
             SetupGL<TGraph>();
             Setup<TGraph>(
                 new APSetup
-                {
-                    RequireControlTotal = false,
+				{
+					InvoiceNumberingID = "APBILL",
+					RequireControlTotal = false,
                     RequireVendorRef = false
-                });
+                }, 
+                new NumberingSequence() { NumberingID = "APBILL", NbrStep = 1, LastNbr = "000033", StartDate = new DateTime(1, 1, 1) },
+				new Numbering()
+				{
+					Descr = "Bill number",
+					UserNumbering = false,
+					NewSymbol = "<NEW>",
+					NumberingID = "APBILL"
+				}
+				);
         }
 
         protected virtual TGraph PrepareGraph<TGraph>()
@@ -28,7 +44,8 @@ namespace UnitTestsDemo.Setup
         {
             SetupAP<TGraph>();
             var graph = PXGraph.CreateInstance<TGraph>();
-            return graph;
+			Slot<AutoNumberAttribute.Numberings>(new MockAutoNumberings());
+			return graph;
         }
     }
 }
